@@ -1,0 +1,457 @@
+/* Estilos gerais da página */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    padding: 20px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 10px;
+    background-color: #003366; /* Azul UnB */
+    color: #FFFFFF;
+    border-radius: 8px;
+}
+header h1 {
+    margin: 0.2em 0;
+}
+header p {
+    margin: 0;
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+/* O contêiner principal que segura a linha do tempo */
+.timeline-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timeline-container {
+    position: relative;
+    width: 100%;
+    margin: 60px auto 40px auto;
+}
+
+/* A barra horizontal */
+.timeline-bar {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background-color: #ccc;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+/* Os marcadores (labels) na linha do tempo */
+.timeline-marker {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: #FFFFFF;
+    border: 4px solid #003366; /* Azul UnB */
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.timeline-marker span {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #003366;
+}
+
+.timeline-marker:hover {
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+/* ============================================== */
+/* --- REGRAS DE INTERATIVIDADE CSS (NÍVEL 1) --- */
+/* ============================================== */
+
+/* 1. Esconde os inputs de rádio (Nível 1 - Eras) */
+.timeline-radio {
+    display: none;
+}
+
+/* 2. Esconde todo o conteúdo das eras por padrão */
+.era-content {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-top: 20px;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 3. Mostra o conteúdo da Era selecionada */
+#era-0:checked ~ .content-wrapper #content-era-0,
+#era-1:checked ~ .content-wrapper #content-era-1,
+#era-2:checked ~ .content-wrapper #content-era-2,
+#era-3:checked ~ .content-wrapper #content-era-3,
+#era-4:checked ~ .content-wrapper #content-era-4,
+#era-5:checked ~ .content-wrapper #content-era-5 {
+    display: block;
+}
+
+/* 4. Estiliza o marcador da Era selecionada */
+#era-0:checked ~ .timeline-container label[for="era-0"],
+#era-1:checked ~ .timeline-container label[for="era-1"],
+#era-2:checked ~ .timeline-container label[for="era-2"],
+#era-3:checked ~ .timeline-container label[for="era-3"],
+#era-4:checked ~ .timeline-container label[for="era-4"],
+#era-5:checked ~ .timeline-container label[for="era-5"] {
+    background-color: #009933; /* Verde UnB */
+    border-color: #009933;
+    transform: translate(-50%, -50%) scale(1.3);
+}
+
+/* ============================================== */
+/* --- ESTILOS INTERNOS DAS ERAS (NÍVEL 2) --- */
+/* ============================================== */
+
+.era-content h2 {
+    color: #003366;
+    border-bottom: 2px solid #009933;
+    padding-bottom: 5px;
+}
+
+.era-narrative {
+    font-style: italic;
+    background-color: #f4f7f6;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid #009933;
+    margin-bottom: 25px;
+}
+
+/* 1. Esconde os inputs de rádio (Nível 2 - Mulheres) */
+.woman-radio {
+    display: none;
+}
+
+/* 2. Estilo do Menu de Cartões */
+.woman-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.woman-card {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.woman-card:hover {
+    border-color: #009933;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.woman-card strong {
+    font-size: 1.1em;
+    color: #003366;
+}
+.woman-card span {
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* 3. Estilo dos Resumos (COM FOTOS) */
+.summaries-container {
+    padding: 20px;
+    background-color: #fdfdfd;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    min-height: 150px;
+}
+
+.woman-summary {
+    display: none; /* Esconde todos os resumos por padrão */
+    animation: fadeIn 0.3s ease;
+}
+
+.woman-summary h3 {
+    color: #003366;
+    margin-top: 0;
+}
+
+/* NOVAS REGRAS PARA FOTOS */
+.summary-content-wrapper {
+    display: flex;
+    align-items: flex-start;
+}
+
+.photo-container {
+    flex: 0 0 150px; /* Não cresce, Não encolhe, base de 150px */
+    margin-right: 20px;
+}
+
+.pioneer-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    background-color: #eee; /* Cor de fundo para placeholders */
+}
+
+.summary-text {
+    flex: 1; /* Ocupa o espaço restante */
+}
+/* FIM DAS NOVAS REGRAS */
+
+
+/* ============================================== */
+/* --- REGRAS DE INTERATIVIDADE CSS (NÍVEL 2) --- */
+/* ============================================== */
+
+/* 4. Mostra o resumo da mulher selecionada (e o default) */
+/* --- Era 1 --- */
+#era-1-default:checked ~ .summaries-container #summary-era-1-default,
+#woman-lovelace:checked ~ .summaries-container #summary-lovelace,
+#woman-leavitt:checked ~ .summaries-container #summary-leavitt,
+#woman-wilson:checked ~ .summaries-container #summary-wilson,
+#woman-cave:checked ~ .summaries-container #summary-cave {
+    display: block;
+}
+/* Efeito de "selecionado" no cartão (Era 1) */
+#woman-lovelace:checked ~ .woman-menu label[for='woman-lovelace'],
+#woman-leavitt:checked ~ .woman-menu label[for='woman-leavitt'],
+#woman-wilson:checked ~ .woman-menu label[for='woman-wilson'],
+#woman-cave:checked ~ .woman-menu label[for='woman-cave'] {
+    border-color: #009933;
+    box-shadow: 0 0 10px rgba(0,153,51,0.3);
+    background-color: #f4f7f6;
+}
+
+/* --- Regras para Era 2 --- */
+#era-2-default:checked ~ .summaries-container #summary-era-2-default,
+#woman-computadoras:checked ~ .summaries-container #summary-computadoras,
+#woman-batey:checked ~ .summaries-container #summary-batey,
+#woman-lamarr:checked ~ .summaries-container #summary-lamarr,
+#woman-bartik:checked ~ .summaries-container #summary-bartik,
+#woman-holberton-eniac:checked ~ .summaries-container #summary-holberton-eniac,
+#woman-mcnulty:checked ~ .summaries-container #summary-mcnulty,
+#woman-meltzer:checked ~ .summaries-container #summary-meltzer,
+#woman-spence:checked ~ .summaries-container #summary-spence,
+#woman-teitelbaum:checked ~ .summaries-container #summary-teitelbaum,
+#woman-vaughan:checked ~ .summaries-container #summary-vaughan,
+#woman-blanch:checked ~ .summaries-container #summary-blanch,
+#woman-rees:checked ~ .summaries-container #summary-rees,
+#woman-clarke:checked ~ .summaries-container #summary-clarke,
+#woman-piesch:checked ~ .summaries-container #summary-piesch,
+#woman-hermann:checked ~ .summaries-container #summary-hermann {
+    display: block;
+}
+
+/* Efeito de "selecionado" no cartão */
+#woman-computadoras:checked ~ .woman-menu label[for='woman-computadoras'],
+#woman-batey:checked ~ .woman-menu label[for='woman-batey'],
+#woman-lamarr:checked ~ .woman-menu label[for='woman-lamarr'],
+#woman-bartik:checked ~ .woman-menu label[for='woman-bartik'],
+#woman-holberton-eniac:checked ~ .woman-menu label[for='woman-holberton-eniac'],
+#woman-mcnulty:checked ~ .woman-menu label[for='woman-mcnulty'],
+#woman-meltzer:checked ~ .woman-menu label[for='woman-meltzer'],
+#woman-spence:checked ~ .woman-menu label[for='woman-spence'],
+#woman-teitelbaum:checked ~ .woman-menu label[for='woman-teitelbaum'],
+#woman-vaughan:checked ~ .woman-menu label[for='woman-vaughan'],
+#woman-blanch:checked ~ .woman-menu label[for='woman-blanch'],
+#woman-rees:checked ~ .woman-menu label[for='woman-rees'],
+#woman-clarke:checked ~ .woman-menu label[for='woman-clarke'],
+#woman-piesch:checked ~ .woman-menu label[for='woman-piesch'],
+#woman-hermann:checked ~ .woman-menu label[for='woman-hermann'] {
+    border-color: red;
+    box-shadow: 0 0 10px rgba(255,0,0,0.4);
+    background-color: #fff;
+}
+
+/* --- Era 3 --- */
+#era-3-default:checked ~ .summaries-container #summary-era-3-default,
+#woman-hopper:checked ~ .summaries-container #summary-hopper,
+#woman-holberton:checked ~ .summaries-container #summary-holberton,
+#woman-rhodes:checked ~ .summaries-container #summary-rhodes,
+#woman-sammet:checked ~ .summaries-container #summary-sammet,
+#woman-worsley:checked ~ .summaries-container #summary-worsley,
+#woman-keller:checked ~ .summaries-container #summary-keller,
+#woman-wilkes:checked ~ .summaries-container #summary-wilkes,
+#woman-fox:checked ~ .summaries-container #summary-fox {
+    display: block;
+}
+/* Efeito de "selecionado" no cartão (Era 3) */
+#woman-hopper:checked ~ .woman-menu label[for='woman-hopper'],
+#woman-holberton:checked ~ .woman-menu label[for='woman-holberton'],
+#woman-rhodes:checked ~ .woman-menu label[for='woman-rhodes'],
+#woman-sammet:checked ~ .woman-menu label[for='woman-sammet'],
+#woman-worsley:checked ~ .woman-menu label[for='woman-worsley'],
+#woman-keller:checked ~ .woman-menu label[for='woman-keller'],
+#woman-wilkes:checked ~ .woman-menu label[for='woman-wilkes'],
+#woman-fox:checked ~ .woman-menu label[for='woman-fox'] {
+    border-color: #009933;
+    box-shadow: 0 0 10px rgba(0,153,51,0.3);
+    background-color: #f4f7f6;
+}
+
+/* --- Era 4 --- */
+#era-4-default:checked ~ .summaries-container #summary-era-4-default,
+#woman-hamilton:checked ~ .summaries-container #summary-hamilton,
+#woman-ulery:checked ~ .summaries-container #summary-ulery,
+#woman-goldberg:checked ~ .summaries-container #summary-goldberg,
+#woman-shaw:checked ~ .summaries-container #summary-shaw,
+#woman-bailey:checked ~ .summaries-container #summary-bailey,
+#woman-meninsky:checked ~ .summaries-container #summary-meninsky,
+#woman-hoover:checked ~ .summaries-container #summary-hoover,
+#woman-feinler:checked ~ .summaries-container #summary-feinler,
+#woman-sophie-wilson:checked ~ .summaries-container #summary-sophie-wilson,
+#woman-perlman:checked ~ .summaries-container #summary-perlman {
+    display: block;
+}
+/* Efeito de "selecionado" no cartão (Era 4) */
+#woman-hamilton:checked ~ .woman-menu label[for='woman-hamilton'],
+#woman-ulery:checked ~ .woman-menu label[for='woman-ulery'],
+#woman-goldberg:checked ~ .woman-menu label[for='woman-goldberg'],
+#woman-shaw:checked ~ .woman-menu label[for='woman-shaw'],
+#woman-bailey:checked ~ .woman-menu label[for='woman-bailey'],
+#woman-meninsky:checked ~ .woman-menu label[for='woman-meninsky'],
+#woman-hoover:checked ~ .woman-menu label[for='woman-hoover'],
+#woman-feinler:checked ~ .woman-menu label[for='woman-feinler'],
+#woman-sophie-wilson:checked ~ .woman-menu label[for='woman-sophie-wilson'],
+#woman-perlman:checked ~ .woman-menu label[Example CSS rule]:nth-child(2) { ... } {
+    border-color: #009933;
+    box-shadow: 0 0 10px rgba(0,153,51,0.3);
+    background-color: #f4f7f6;
+}
+
+/* --- Era 5 --- */
+#era-5-default:checked ~ .summaries-container #summary-era-5-default,
+#woman-goldwasser:checked ~ .summaries-container #summary-goldwasser,
+#woman-liskov:checked ~ .summaries-container #summary-liskov,
+#woman-mayer:checked ~ .summaries-container #summary-mayer,
+#woman-rometty:checked ~ .summaries-container #summary-rometty,
+#woman-whitman:checked ~ .summaries-container #summary-whitman,
+#woman-borg:checked ~ .summaries-container #summary-borg,
+#woman-whitney:checked ~ .summaries-container #summary-whitney,
+#woman-bryant:checked ~ .summaries-container #summary-bryant,
+#woman-west:checked ~ .summaries-container #summary-west,
+#woman-allen:checked ~ .summaries-container #summary-allen,
+#woman-simmons:checked ~ .summaries-container #summary-simmons {
+    display: block;
+}
+/* Efeito de "selecionado" no cartão (Era 5) */
+#woman-goldwasser:checked ~ .woman-menu label[for='woman-goldwasser'],
+#woman-liskov:checked ~ .woman-menu label[for='woman-liskov'],
+#woman-mayer:checked ~ .woman-menu label[for='woman-mayer'],
+#woman-rometty:checked ~ .woman-menu label[for='woman-rometty'],
+#woman-whitman:checked ~ .woman-menu label[for='woman-whitman'],
+#woman-borg:checked ~ .woman-menu label[for='woman-borg'],
+#woman-whitney:checked ~ .woman-menu label[for='woman-whitney'],
+#woman-bryant:checked ~ .woman-menu label[for='woman-bryant'],
+#woman-west:checked ~ .woman-menu label[for='woman-west'],
+#woman-allen:checked ~ .woman-menu label[for='woman-allen'],
+#woman-simmons:checked ~ .woman-menu label[for='woman-simmons'] {
+    border-color: #009933;
+    box-shadow: 0 0 10px rgba(0,153,51,0.3);
+    background-color: #f4f7f6;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .timeline-marker span {
+        font-size: 0.8em;
+        top: 25px; /* Move o texto para baixo em telas pequenas */
+    }
+
+    .timeline-container {
+        margin-top: 80px; /* Mais espaço para o texto abaixo */
+    }
+
+    .woman-menu {
+        flex-direction: column;
+    }
+    
+    .woman-card {
+        width: 100%;
+        box-sizing: border-box; /* Garante que padding não quebre o layout */
+    }
+
+    /* NOVA REGRA RESPONSIVA: Foto acima do texto */
+    .summary-content-wrapper {
+        flex-direction: column;
+    }
+    .photo-container {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 100%;
+        max-width: 200px; /* Define um tamanho máximo para a foto no modo coluna */
+        align-self: center;
+    }
+}
+
+
+
+/* ============================================== */
+/* --- ESTILOS DO RODAPÉ (REFERÊNCIAS) --- */
+/* ============================================== */
+
+footer {
+    max-width: 1200px;
+    margin: 40px auto 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+footer h2 {
+    color: #003366; /* Azul UnB */
+    border-bottom: 2px solid #009933; /* Verde UnB */
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.references-list {
+    text-align: left;
+    font-size: 0.9em;
+    line-height: 1.5;
+    color: #444;
+}
+
+.references-list p {
+    margin: 0 0 1em 0;
+    padding-bottom: 0.5em;
+    border-bottom: 1px dashed #eee;
+}
+
+.references-list p:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+}
