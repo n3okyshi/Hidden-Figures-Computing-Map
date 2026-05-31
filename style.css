@@ -12,13 +12,16 @@ header {
     text-align: center;
     margin-bottom: 30px;
     padding: 10px;
-    background-color: #003366; /* Azul UnB */
+    background-color: #003366;
+    /* Azul UnB */
     color: #FFFFFF;
     border-radius: 8px;
 }
+
 header h1 {
     margin: 0.2em 0;
 }
+
 header p {
     margin: 0;
     font-size: 1.1em;
@@ -57,7 +60,8 @@ header p {
     width: 20px;
     height: 20px;
     background-color: #FFFFFF;
-    border: 4px solid #003366; /* Azul UnB */
+    border: 4px solid #003366;
+    /* Azul UnB */
     border-radius: 50%;
     cursor: pointer;
     z-index: 2;
@@ -100,28 +104,36 @@ header p {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* 3. Mostra o conteúdo da Era selecionada */
-#era-0:checked ~ .content-wrapper #content-era-0,
-#era-1:checked ~ .content-wrapper #content-era-1,
-#era-2:checked ~ .content-wrapper #content-era-2,
-#era-3:checked ~ .content-wrapper #content-era-3,
-#era-4:checked ~ .content-wrapper #content-era-4,
-#era-5:checked ~ .content-wrapper #content-era-5 {
+#era-0:checked~.content-wrapper #content-era-0,
+#era-1:checked~.content-wrapper #content-era-1,
+#era-2:checked~.content-wrapper #content-era-2,
+#era-3:checked~.content-wrapper #content-era-3,
+#era-4:checked~.content-wrapper #content-era-4,
+#era-5:checked~.content-wrapper #content-era-5 {
     display: block;
 }
 
 /* 4. Estiliza o marcador da Era selecionada */
-#era-0:checked ~ .timeline-container label[for="era-0"],
-#era-1:checked ~ .timeline-container label[for="era-1"],
-#era-2:checked ~ .timeline-container label[for="era-2"],
-#era-3:checked ~ .timeline-container label[for="era-3"],
-#era-4:checked ~ .timeline-container label[for="era-4"],
-#era-5:checked ~ .timeline-container label[for="era-5"] {
-    background-color: #009933; /* Verde UnB */
+#era-0:checked~.timeline-container label[for="era-0"],
+#era-1:checked~.timeline-container label[for="era-1"],
+#era-2:checked~.timeline-container label[for="era-2"],
+#era-3:checked~.timeline-container label[for="era-3"],
+#era-4:checked~.timeline-container label[for="era-4"],
+#era-5:checked~.timeline-container label[for="era-5"] {
+    background-color: #009933;
+    /* Verde UnB */
     border-color: #009933;
     transform: translate(-50%, -50%) scale(1.3);
 }
@@ -174,13 +186,14 @@ header p {
 .woman-card:hover {
     border-color: #009933;
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 .woman-card strong {
     font-size: 1.1em;
     color: #003366;
 }
+
 .woman-card span {
     font-size: 0.9em;
     color: #555;
@@ -196,7 +209,8 @@ header p {
 }
 
 .woman-summary {
-    display: none; /* Esconde todos os resumos por padrão */
+    display: none;
+    /* Esconde todos os resumos por padrão */
     animation: fadeIn 0.3s ease;
 }
 
@@ -212,7 +226,7 @@ header p {
 }
 
 .photo-container {
-    flex: 0 0 150px; /* Não cresce, Não encolhe, base de 150px */
+    flex: 0 0 150px;
     margin-right: 20px;
 }
 
@@ -221,164 +235,270 @@ header p {
     height: auto;
     border-radius: 8px;
     border: 2px solid #ddd;
-    background-color: #eee; /* Cor de fundo para placeholders */
+    background-color: #eee;
 }
 
 .summary-text {
-    flex: 1; /* Ocupa o espaço restante */
+    flex: 1;
 }
-/* FIM DAS NOVAS REGRAS */
 
 
 /* ============================================== */
 /* --- REGRAS DE INTERATIVIDADE CSS (NÍVEL 2) --- */
 /* ============================================== */
 
-/* 4. Mostra o resumo da mulher selecionada (e o default) */
-/* --- Era 1 --- */
-#era-1-default:checked ~ .summaries-container #summary-era-1-default,
-#woman-lovelace:checked ~ .summaries-container #summary-lovelace,
-#woman-leavitt:checked ~ .summaries-container #summary-leavitt,
-#woman-wilson:checked ~ .summaries-container #summary-wilson,
-#woman-cave:checked ~ .summaries-container #summary-cave {
+/* Era 1: Display Resumos */
+#era-1-default:checked~.summaries-container #summary-era-1-default,
+#w-lovelace:checked~.summaries-container #summary-lovelace,
+#w-leavitt:checked~.summaries-container #summary-leavitt,
+#w-cave:checked~.summaries-container #summary-cave,
+#w-noether:checked~.summaries-container #summary-noether,
+#w-clarke:checked~.summaries-container #summary-clarke,
+#w-wilson:checked~.summaries-container #summary-wilson,
+#w-piesch:checked~.summaries-container #summary-piesch,
+#w-hermann:checked~.summaries-container #summary-hermann {
     display: block;
 }
-/* Efeito de "selecionado" no cartão (Era 1) */
-#woman-lovelace:checked ~ .woman-menu label[for='woman-lovelace'],
-#woman-leavitt:checked ~ .woman-menu label[for='woman-leavitt'],
-#woman-wilson:checked ~ .woman-menu label[for='woman-wilson'],
-#woman-cave:checked ~ .woman-menu label[for='woman-cave'] {
+
+/* Era 1: Destaque no Cartão */
+#w-lovelace:checked~.woman-menu label[for='w-lovelace'],
+#w-leavitt:checked~.woman-menu label[for='w-leavitt'],
+#w-cave:checked~.woman-menu label[for='w-cave'],
+#w-noether:checked~.woman-menu label[for='w-noether'],
+#w-clarke:checked~.woman-menu label[for='w-clarke'],
+#w-wilson:checked~.woman-menu label[for='w-wilson'],
+#w-piesch:checked~.woman-menu label[for='w-piesch'],
+#w-hermann:checked~.woman-menu label[for='w-hermann'] {
     border-color: #009933;
-    box-shadow: 0 0 10px rgba(0,153,51,0.3);
+    box-shadow: 0 0 10px rgba(0, 153, 51, 0.3);
     background-color: #f4f7f6;
 }
 
-/* --- Regras para Era 2 --- */
-#era-2-default:checked ~ .summaries-container #summary-era-2-default,
-#woman-computadoras:checked ~ .summaries-container #summary-computadoras,
-#woman-batey:checked ~ .summaries-container #summary-batey,
-#woman-lamarr:checked ~ .summaries-container #summary-lamarr,
-#woman-bartik:checked ~ .summaries-container #summary-bartik,
-#woman-holberton-eniac:checked ~ .summaries-container #summary-holberton-eniac,
-#woman-mcnulty:checked ~ .summaries-container #summary-mcnulty,
-#woman-meltzer:checked ~ .summaries-container #summary-meltzer,
-#woman-spence:checked ~ .summaries-container #summary-spence,
-#woman-teitelbaum:checked ~ .summaries-container #summary-teitelbaum,
-#woman-vaughan:checked ~ .summaries-container #summary-vaughan,
-#woman-blanch:checked ~ .summaries-container #summary-blanch,
-#woman-rees:checked ~ .summaries-container #summary-rees,
-#woman-clarke:checked ~ .summaries-container #summary-clarke,
-#woman-piesch:checked ~ .summaries-container #summary-piesch,
-#woman-hermann:checked ~ .summaries-container #summary-hermann {
+/* Era 2: Display Resumos */
+#era-2-default:checked~.summaries-container #summary-era-2-default,
+#w-comp:checked~.summaries-container #summary-comp,
+#w-eniac:checked~.summaries-container #summary-eniac,
+#w-bartik:checked~.summaries-container #summary-bartik,
+#w-mcnulty:checked~.summaries-container #summary-mcnulty,
+#w-meltzer:checked~.summaries-container #summary-meltzer,
+#w-spence:checked~.summaries-container #summary-spence,
+#w-teitelbaum:checked~.summaries-container #summary-teitelbaum,
+#w-goldstine:checked~.summaries-container #summary-goldstine,
+#w-butler:checked~.summaries-container #summary-butler,
+#w-sigmund:checked~.summaries-container #summary-sigmund,
+#w-mb-malone:checked~.summaries-container #summary-mb-malone,
+#w-bolotsky:checked~.summaries-container #summary-bolotsky,
+#w-gersten:checked~.summaries-container #summary-gersten,
+#w-jonas:checked~.summaries-container #summary-jonas,
+#w-hg-malone:checked~.summaries-container #summary-hg-malone,
+#w-reitwiesner:checked~.summaries-container #summary-reitwiesner,
+#w-batey:checked~.summaries-container #summary-batey,
+#w-jclarke:checked~.summaries-container #summary-jclarke,
+#w-friedman:checked~.summaries-container #summary-friedman,
+#w-lamarr:checked~.summaries-container #summary-lamarr,
+#w-vaughan:checked~.summaries-container #summary-vaughan,
+#w-jackson:checked~.summaries-container #summary-jackson,
+#w-johnson:checked~.summaries-container #summary-johnson,
+#w-west:checked~.summaries-container #summary-west,
+#w-blanch:checked~.summaries-container #summary-blanch,
+#w-rhodes:checked~.summaries-container #summary-rhodes,
+#w-rees:checked~.summaries-container #summary-rees {
     display: block;
 }
 
-/* Efeito de "selecionado" no cartão */
-#woman-computadoras:checked ~ .woman-menu label[for='woman-computadoras'],
-#woman-batey:checked ~ .woman-menu label[for='woman-batey'],
-#woman-lamarr:checked ~ .woman-menu label[for='woman-lamarr'],
-#woman-bartik:checked ~ .woman-menu label[for='woman-bartik'],
-#woman-holberton-eniac:checked ~ .woman-menu label[for='woman-holberton-eniac'],
-#woman-mcnulty:checked ~ .woman-menu label[for='woman-mcnulty'],
-#woman-meltzer:checked ~ .woman-menu label[for='woman-meltzer'],
-#woman-spence:checked ~ .woman-menu label[for='woman-spence'],
-#woman-teitelbaum:checked ~ .woman-menu label[for='woman-teitelbaum'],
-#woman-vaughan:checked ~ .woman-menu label[for='woman-vaughan'],
-#woman-blanch:checked ~ .woman-menu label[for='woman-blanch'],
-#woman-rees:checked ~ .woman-menu label[for='woman-rees'],
-#woman-clarke:checked ~ .woman-menu label[for='woman-clarke'],
-#woman-piesch:checked ~ .woman-menu label[for='woman-piesch'],
-#woman-hermann:checked ~ .woman-menu label[for='woman-hermann'] {
+/* Era 2: Destaque no Cartão */
+#w-comp:checked~.woman-menu label[for='w-comp'],
+#w-eniac:checked~.woman-menu label[for='w-eniac'],
+#w-bartik:checked~.woman-menu label[for='w-bartik'],
+#w-mcnulty:checked~.woman-menu label[for='w-mcnulty'],
+#w-meltzer:checked~.woman-menu label[for='w-meltzer'],
+#w-spence:checked~.woman-menu label[for='w-spence'],
+#w-teitelbaum:checked~.woman-menu label[for='w-teitelbaum'],
+#w-goldstine:checked~.woman-menu label[for='w-goldstine'],
+#w-butler:checked~.woman-menu label[for='w-butler'],
+#w-sigmund:checked~.woman-menu label[for='w-sigmund'],
+#w-mb-malone:checked~.woman-menu label[for='w-mb-malone'],
+#w-bolotsky:checked~.woman-menu label[for='w-bolotsky'],
+#w-gersten:checked~.woman-menu label[for='w-gersten'],
+#w-jonas:checked~.woman-menu label[for='w-jonas'],
+#w-hg-malone:checked~.woman-menu label[for='w-hg-malone'],
+#w-reitwiesner:checked~.woman-menu label[for='w-reitwiesner'],
+#w-batey:checked~.woman-menu label[for='w-batey'],
+#w-jclarke:checked~.woman-menu label[for='w-jclarke'],
+#w-friedman:checked~.woman-menu label[for='w-friedman'],
+#w-lamarr:checked~.woman-menu label[for='w-lamarr'],
+#w-vaughan:checked~.woman-menu label[for='w-vaughan'],
+#w-jackson:checked~.woman-menu label[for='w-jackson'],
+#w-johnson:checked~.woman-menu label[for='w-johnson'],
+#w-west:checked~.woman-menu label[for='w-west'],
+#w-blanch:checked~.woman-menu label[for='w-blanch'],
+#w-rhodes:checked~.woman-menu label[for='w-rhodes'],
+#w-rees:checked~.woman-menu label[for='w-rees'] {
     border-color: red;
-    box-shadow: 0 0 10px rgba(255,0,0,0.4);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
     background-color: #fff;
 }
 
-/* --- Era 3 --- */
-#era-3-default:checked ~ .summaries-container #summary-era-3-default,
-#woman-hopper:checked ~ .summaries-container #summary-hopper,
-#woman-holberton:checked ~ .summaries-container #summary-holberton,
-#woman-rhodes:checked ~ .summaries-container #summary-rhodes,
-#woman-sammet:checked ~ .summaries-container #summary-sammet,
-#woman-worsley:checked ~ .summaries-container #summary-worsley,
-#woman-keller:checked ~ .summaries-container #summary-keller,
-#woman-wilkes:checked ~ .summaries-container #summary-wilkes,
-#woman-fox:checked ~ .summaries-container #summary-fox {
+/* Era 3: Display Resumos */
+#era-3-default:checked~.summaries-container #summary-era-3-default,
+#w-hopper:checked~.summaries-container #summary-hopper,
+#w-hamilton:checked~.summaries-container #summary-hamilton,
+#w-worsley:checked~.summaries-container #summary-worsley,
+#w-coombs:checked~.summaries-container #summary-coombs,
+#w-ulery:checked~.summaries-container #summary-ulery,
+#w-wyman:checked~.summaries-container #summary-wyman,
+#w-sammet:checked~.summaries-container #summary-sammet,
+#w-keller:checked~.summaries-container #summary-keller,
+#w-shirley:checked~.summaries-container #summary-shirley,
+#w-johnston:checked~.summaries-container #summary-johnston,
+#w-koss:checked~.summaries-container #summary-koss,
+#w-ball:checked~.summaries-container #summary-ball,
+#w-amonette:checked~.summaries-container #summary-amonette,
+#w-fox:checked~.summaries-container #summary-fox,
+#w-wilkes:checked~.summaries-container #summary-wilkes,
+#w-koons:checked~.summaries-container #summary-koons {
     display: block;
 }
-/* Efeito de "selecionado" no cartão (Era 3) */
-#woman-hopper:checked ~ .woman-menu label[for='woman-hopper'],
-#woman-holberton:checked ~ .woman-menu label[for='woman-holberton'],
-#woman-rhodes:checked ~ .woman-menu label[for='woman-rhodes'],
-#woman-sammet:checked ~ .woman-menu label[for='woman-sammet'],
-#woman-worsley:checked ~ .woman-menu label[for='woman-worsley'],
-#woman-keller:checked ~ .woman-menu label[for='woman-keller'],
-#woman-wilkes:checked ~ .woman-menu label[for='woman-wilkes'],
-#woman-fox:checked ~ .woman-menu label[for='woman-fox'] {
+
+/* Era 3: Destaque no Cartão */
+#w-hopper:checked~.woman-menu label[for='w-hopper'],
+#w-hamilton:checked~.woman-menu label[for='w-hamilton'],
+#w-worsley:checked~.woman-menu label[for='w-worsley'],
+#w-coombs:checked~.woman-menu label[for='w-coombs'],
+#w-ulery:checked~.woman-menu label[for='w-ulery'],
+#w-wyman:checked~.woman-menu label[for='w-wyman'],
+#w-sammet:checked~.woman-menu label[for='w-sammet'],
+#w-keller:checked~.woman-menu label[for='w-keller'],
+#w-shirley:checked~.woman-menu label[for='w-shirley'],
+#w-johnston:checked~.woman-menu label[for='w-johnston'],
+#w-koss:checked~.woman-menu label[for='w-koss'],
+#w-ball:checked~.woman-menu label[for='w-ball'],
+#w-amonette:checked~.woman-menu label[for='w-amonette'],
+#w-fox:checked~.woman-menu label[for='w-fox'],
+#w-wilkes:checked~.woman-menu label[for='w-wilkes'],
+#w-koons:checked~.woman-menu label[for='w-koons'] {
     border-color: #009933;
-    box-shadow: 0 0 10px rgba(0,153,51,0.3);
+    box-shadow: 0 0 10px rgba(0, 153, 51, 0.3);
     background-color: #f4f7f6;
 }
 
-/* --- Era 4 --- */
-#era-4-default:checked ~ .summaries-container #summary-era-4-default,
-#woman-hamilton:checked ~ .summaries-container #summary-hamilton,
-#woman-ulery:checked ~ .summaries-container #summary-ulery,
-#woman-goldberg:checked ~ .summaries-container #summary-goldberg,
-#woman-shaw:checked ~ .summaries-container #summary-shaw,
-#woman-bailey:checked ~ .summaries-container #summary-bailey,
-#woman-meninsky:checked ~ .summaries-container #summary-meninsky,
-#woman-hoover:checked ~ .summaries-container #summary-hoover,
-#woman-feinler:checked ~ .summaries-container #summary-feinler,
-#woman-sophie-wilson:checked ~ .summaries-container #summary-sophie-wilson,
-#woman-perlman:checked ~ .summaries-container #summary-perlman {
+/* Era 4: Display Resumos */
+#era-4-default:checked~.summaries-container #summary-era-4-default,
+#w-swilson:checked~.summaries-container #summary-swilson,
+#w-perlman:checked~.summaries-container #summary-perlman,
+#w-shaw:checked~.summaries-container #summary-shaw,
+#w-bailey:checked~.summaries-container #summary-bailey,
+#w-meninsky:checked~.summaries-container #summary-meninsky,
+#w-allen:checked~.summaries-container #summary-allen,
+#w-liskov:checked~.summaries-container #summary-liskov,
+#w-goldwasser:checked~.summaries-container #summary-goldwasser,
+#w-goldberg:checked~.summaries-container #summary-goldberg,
+#w-hoover:checked~.summaries-container #summary-hoover,
+#w-feinler:checked~.summaries-container #summary-feinler,
+#w-kare:checked~.summaries-container #summary-kare,
+#w-cole:checked~.summaries-container #summary-cole,
+#w-jensen:checked~.summaries-container #summary-jensen,
+#w-shannon:checked~.summaries-container #summary-shannon,
+#w-williams:checked~.summaries-container #summary-williams,
+#w-tardos:checked~.summaries-container #summary-tardos,
+#w-mshaw:checked~.summaries-container #summary-mshaw,
+#w-greif:checked~.summaries-container #summary-greif,
+#w-floyd:checked~.summaries-container #summary-floyd,
+#w-cherry:checked~.summaries-container #summary-cherry,
+#w-greswold:checked~.summaries-container #summary-greswold,
+#w-haibt:checked~.summaries-container #summary-haibt,
+#w-owicki:checked~.summaries-container #summary-owicki {
     display: block;
 }
-/* Efeito de "selecionado" no cartão (Era 4) */
-#woman-hamilton:checked ~ .woman-menu label[for='woman-hamilton'],
-#woman-ulery:checked ~ .woman-menu label[for='woman-ulery'],
-#woman-goldberg:checked ~ .woman-menu label[for='woman-goldberg'],
-#woman-shaw:checked ~ .woman-menu label[for='woman-shaw'],
-#woman-bailey:checked ~ .woman-menu label[for='woman-bailey'],
-#woman-meninsky:checked ~ .woman-menu label[for='woman-meninsky'],
-#woman-hoover:checked ~ .woman-menu label[for='woman-hoover'],
-#woman-feinler:checked ~ .woman-menu label[for='woman-feinler'],
-#woman-sophie-wilson:checked ~ .woman-menu label[for='woman-sophie-wilson'],
-#woman-perlman:checked ~ .woman-menu label[Example CSS rule]:nth-child(2) { ... } {
+
+/* Era 4: Destaque no Cartão */
+#w-swilson:checked~.woman-menu label[for='w-swilson'],
+#w-perlman:checked~.woman-menu label[for='w-perlman'],
+#w-shaw:checked~.woman-menu label[for='w-shaw'],
+#w-bailey:checked~.woman-menu label[for='w-bailey'],
+#w-meninsky:checked~.woman-menu label[for='w-meninsky'],
+#w-allen:checked~.woman-menu label[for='w-allen'],
+#w-liskov:checked~.woman-menu label[for='w-liskov'],
+#w-goldwasser:checked~.woman-menu label[for='w-goldwasser'],
+#w-goldberg:checked~.woman-menu label[for='w-goldberg'],
+#w-hoover:checked~.woman-menu label[for='w-hoover'],
+#w-feinler:checked~.woman-menu label[for='w-feinler'],
+#w-kare:checked~.woman-menu label[for='w-kare'],
+#w-cole:checked~.woman-menu label[for='w-cole'],
+#w-jensen:checked~.woman-menu label[for='w-jensen'],
+#w-shannon:checked~.woman-menu label[for='w-shannon'],
+#w-williams:checked~.woman-menu label[for='w-williams'],
+#w-tardos:checked~.woman-menu label[for='w-tardos'],
+#w-mshaw:checked~.woman-menu label[for='w-mshaw'],
+#w-greif:checked~.woman-menu label[for='w-greif'],
+#w-floyd:checked~.woman-menu label[for='w-floyd'],
+#w-cherry:checked~.woman-menu label[for='w-cherry'],
+#w-greswold:checked~.woman-menu label[for='w-greswold'],
+#w-haibt:checked~.woman-menu label[for='w-haibt'],
+#w-owicki:checked~.woman-menu label[for='w-owicki'] {
     border-color: #009933;
-    box-shadow: 0 0 10px rgba(0,153,51,0.3);
+    box-shadow: 0 0 10px rgba(0, 153, 51, 0.3);
     background-color: #f4f7f6;
 }
 
-/* --- Era 5 --- */
-#era-5-default:checked ~ .summaries-container #summary-era-5-default,
-#woman-goldwasser:checked ~ .summaries-container #summary-goldwasser,
-#woman-liskov:checked ~ .summaries-container #summary-liskov,
-#woman-mayer:checked ~ .summaries-container #summary-mayer,
-#woman-rometty:checked ~ .summaries-container #summary-rometty,
-#woman-whitman:checked ~ .summaries-container #summary-whitman,
-#woman-borg:checked ~ .summaries-container #summary-borg,
-#woman-whitney:checked ~ .summaries-container #summary-whitney,
-#woman-bryant:checked ~ .summaries-container #summary-bryant,
-#woman-west:checked ~ .summaries-container #summary-west,
-#woman-allen:checked ~ .summaries-container #summary-allen,
-#woman-simmons:checked ~ .summaries-container #summary-simmons {
+/* Era 5: Display Resumos */
+#era-5-default:checked~.summaries-container #summary-era-5-default,
+#w-mayer:checked~.summaries-container #summary-mayer,
+#w-rometty:checked~.summaries-container #summary-rometty,
+#w-bryant:checked~.summaries-container #summary-bryant,
+#w-simmons:checked~.summaries-container #summary-simmons,
+#w-whitman:checked~.summaries-container #summary-whitman,
+#w-borg:checked~.summaries-container #summary-borg,
+#w-whitney:checked~.summaries-container #summary-whitney,
+#w-sanghvi:checked~.summaries-container #summary-sanghvi,
+#w-bashen:checked~.summaries-container #summary-bashen,
+#w-dubinsky:checked~.summaries-container #summary-dubinsky,
+#w-wang:checked~.summaries-container #summary-wang,
+#w-zhang:checked~.summaries-container #summary-zhang,
+#w-maarek:checked~.summaries-container #summary-maarek,
+#w-bartz:checked~.summaries-container #summary-bartz,
+#w-catz:checked~.summaries-container #summary-catz,
+#w-teixeira:checked~.summaries-container #summary-teixeira,
+#w-garcia:checked~.summaries-container #summary-garcia,
+#w-tsao:checked~.summaries-container #summary-tsao,
+#w-medeiros:checked~.summaries-container #summary-medeiros,
+#w-finger:checked~.summaries-container #summary-finger,
+#w-haelsig:checked~.summaries-container #summary-haelsig,
+#w-saujani:checked~.summaries-container #summary-saujani,
+#w-payne:checked~.summaries-container #summary-payne,
+#w-hurst:checked~.summaries-container #summary-hurst,
+#w-tuite:checked~.summaries-container #summary-tuite {
     display: block;
 }
-/* Efeito de "selecionado" no cartão (Era 5) */
-#woman-goldwasser:checked ~ .woman-menu label[for='woman-goldwasser'],
-#woman-liskov:checked ~ .woman-menu label[for='woman-liskov'],
-#woman-mayer:checked ~ .woman-menu label[for='woman-mayer'],
-#woman-rometty:checked ~ .woman-menu label[for='woman-rometty'],
-#woman-whitman:checked ~ .woman-menu label[for='woman-whitman'],
-#woman-borg:checked ~ .woman-menu label[for='woman-borg'],
-#woman-whitney:checked ~ .woman-menu label[for='woman-whitney'],
-#woman-bryant:checked ~ .woman-menu label[for='woman-bryant'],
-#woman-west:checked ~ .woman-menu label[for='woman-west'],
-#woman-allen:checked ~ .woman-menu label[for='woman-allen'],
-#woman-simmons:checked ~ .woman-menu label[for='woman-simmons'] {
+
+/* Era 5: Destaque no Cartão */
+#w-mayer:checked~.woman-menu label[for='w-mayer'],
+#w-rometty:checked~.woman-menu label[for='w-rometty'],
+#w-bryant:checked~.woman-menu label[for='w-bryant'],
+#w-simmons:checked~.woman-menu label[for='w-simmons'],
+#w-whitman:checked~.woman-menu label[for='w-whitman'],
+#w-borg:checked~.woman-menu label[for='w-borg'],
+#w-whitney:checked~.woman-menu label[for='w-whitney'],
+#w-sanghvi:checked~.woman-menu label[for='w-sanghvi'],
+#w-bashen:checked~.woman-menu label[for='w-bashen'],
+#w-dubinsky:checked~.woman-menu label[for='w-dubinsky'],
+#w-wang:checked~.woman-menu label[for='w-wang'],
+#w-zhang:checked~.woman-menu label[for='w-zhang'],
+#w-maarek:checked~.woman-menu label[for='w-maarek'],
+#w-bartz:checked~.woman-menu label[for='w-bartz'],
+#w-catz:checked~.woman-menu label[for='w-catz'],
+#w-teixeira:checked~.woman-menu label[for='w-teixeira'],
+#w-garcia:checked~.woman-menu label[for='w-garcia'],
+#w-tsao:checked~.woman-menu label[for='w-tsao'],
+#w-medeiros:checked~.woman-menu label[for='w-medeiros'],
+#w-finger:checked~.woman-menu label[for='w-finger'],
+#w-haelsig:checked~.woman-menu label[for='w-haelsig'],
+#w-saujani:checked~.woman-menu label[for='w-saujani'],
+#w-payne:checked~.woman-menu label[for='w-payne'],
+#w-hurst:checked~.woman-menu label[for='w-hurst'],
+#w-tuite:checked~.woman-menu label[for='w-tuite'] {
     border-color: #009933;
-    box-shadow: 0 0 10px rgba(0,153,51,0.3);
+    box-shadow: 0 0 10px rgba(0, 153, 51, 0.3);
     background-color: #f4f7f6;
 }
 
@@ -386,36 +506,34 @@ header p {
 @media (max-width: 768px) {
     .timeline-marker span {
         font-size: 0.8em;
-        top: 25px; /* Move o texto para baixo em telas pequenas */
+        top: 25px;
     }
 
     .timeline-container {
-        margin-top: 80px; /* Mais espaço para o texto abaixo */
+        margin-top: 80px;
     }
 
     .woman-menu {
         flex-direction: column;
     }
-    
+
     .woman-card {
         width: 100%;
-        box-sizing: border-box; /* Garante que padding não quebre o layout */
+        box-sizing: border-box;
     }
 
-    /* NOVA REGRA RESPONSIVA: Foto acima do texto */
     .summary-content-wrapper {
         flex-direction: column;
     }
+
     .photo-container {
         margin-right: 0;
         margin-bottom: 15px;
         width: 100%;
-        max-width: 200px; /* Define um tamanho máximo para a foto no modo coluna */
+        max-width: 200px;
         align-self: center;
     }
 }
-
-
 
 /* ============================================== */
 /* --- ESTILOS DO RODAPÉ (REFERÊNCIAS) --- */
@@ -432,8 +550,8 @@ footer {
 }
 
 footer h2 {
-    color: #003366; /* Azul UnB */
-    border-bottom: 2px solid #009933; /* Verde UnB */
+    color: #003366;
+    border-bottom: 2px solid #009933;
     padding-bottom: 5px;
     margin-bottom: 20px;
 }
